@@ -5,8 +5,16 @@ import fastifyCookie from '@fastify/cookie'
 import { ZodError } from 'zod'
 import { orgsRoutes } from './http/controllers/orgs/orgs.routes'
 import { petsRoutes } from './http/controllers/pets/pets.routes'
+import fastifyCors from 'fastify-cors'
 
 export const app = fastify()
+
+app.register(fastifyCors, {
+  // Specify your CORS options here
+  origin: ['http://localhost:3000'],
+  methods: ['GET', 'POST'], // Allow specific HTTP methods
+  allowedHeaders: ['Content-Type'], // Allow specific headers
+})
 
 app.register(fastifyJwt, {
   secret: env.JWT_SECRET,

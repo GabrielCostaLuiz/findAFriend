@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "find a pet friend",
   "main": "index.js",
-  "engines":{
+  "engines": {
     "node": ">=14 <22"
   },
   "scripts": {
@@ -49,7 +49,7 @@
     "dayjs": "1.11.7",
     "dotenv": "16.0.3",
     "fastify": "4.13.0",
+    "fastify-cors": "6.0.3",
     "zod": "3.20.6"
   }
 }
-
