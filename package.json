@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "find a pet friend",
   "main": "index.js",
+  "engines":{
+    "node": ">=14 <22"
+  },
   "scripts": {
     "start:dev": "tsx watch src/server.ts",
     "start": "node build/server.js",
