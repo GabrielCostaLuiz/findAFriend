@@ -2,7 +2,7 @@ import { OrgsRepository } from '@/repositories/orgs-repository'
 import { Org } from '@prisma/client'
 
 interface FindAllOrgsUseCaseResponse {
-  orgs: Org[] | null
+  orgs: Omit<Org, 'id' | 'email' | 'password_hash'>[] | null
 }
 
 export class FindAllOrgsUseCase {
@@ -15,8 +15,12 @@ export class FindAllOrgsUseCase {
       throw new Error()
     }
 
+    const sanitizedOrgs = orgs.map(
+      ({ id, email, password_hash, ...rest }) => rest,
+    )
+
     return {
-      orgs,
+      orgs: sanitizedOrgs,
     }
   }
 }
