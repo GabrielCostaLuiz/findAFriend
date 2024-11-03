@@ -6,6 +6,7 @@ const envSchema = z.object({
   PORT: z.coerce.number().default(3333),
   NODE_ENV: z.enum(['dev', 'production', 'test']).default('dev'),
   DATABASE_URL: z.string(),
+  // DATABASE_CLIENT: z.enum(['dev']),
   JWT_SECRET: z.string(),
 })
 
