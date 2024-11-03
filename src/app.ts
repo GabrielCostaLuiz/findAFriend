@@ -13,6 +13,7 @@ app.register(cors, {
   // put your options here
   origin: ['http://localhost:3000'],
   methods: ['GET', 'POST'],
+  credentials: true,
 })
 
 app.register(fastifyJwt, {
@@ -36,8 +37,6 @@ app.setErrorHandler((error, _, reply) => {
 
   if (env.NODE_ENV !== 'production') {
     console.error(error)
-  } else {
-    // TODO: Here we should log to a external tool like DataDog/NewRelic/Sentry
   }
 
   return reply.status(500).send({ message: 'Internal server error.' })
