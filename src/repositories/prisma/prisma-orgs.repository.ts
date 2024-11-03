@@ -33,4 +33,10 @@ export class PrismaOrgsRepository implements OrgsRepository {
 
     return org
   }
+
+  async fillAll(): Promise<Org[]> {
+    const orgs = await prisma.org.findMany({})
+
+    return orgs
+  }
 }

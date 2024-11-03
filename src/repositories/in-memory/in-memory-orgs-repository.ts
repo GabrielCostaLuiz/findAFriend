@@ -41,4 +41,10 @@ export class InMemoryOrgsRepository implements OrgsRepository {
   async findById(id: string) {
     return this.items.find((item) => item.id === id) || null
   }
+
+  async fillAll() {
+    const items = this.items
+
+    return items || null
+  }
 }
